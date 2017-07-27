@@ -1,3 +1,27 @@
 <h1>
     Cadastro de Cliente
 </h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Foto</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($clientes as $cliente) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($cliente->foto) ?></td>
+        <td><?= $this->escapeHtml($cliente->nome) ?></td>
+        <td><?= $this->escapeHtml($cliente->email) ?></td>
+        <td><?= $this->escapeHtml($cliente->telefone) ?></td>
+        <td>Editar / Excluir</td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

@@ -6,7 +6,7 @@
   return [
       'controllers' => [
           'factories' => [
-              Controller\ClientesController::class => InvokableFactory::class
+              #Controller\ClientesController::class => InvokableFactory::class
           ]
       ],
 
