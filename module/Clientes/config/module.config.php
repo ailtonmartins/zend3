@@ -1,15 +1,28 @@
 <?php
   namespace Clientes;
 
-  return [
-      'controller' => [
-          'factories' => [
+  use Zend\ServiceManager\Factory\InvokableFactory;
 
+  return [
+      'controllers' => [
+          'factories' => [
+              Controller\ClientesController::class => InvokableFactory::class
           ]
       ],
 
       'router' => [
-
+           'routes'=> [
+               'clientes' => [
+                   'type' => 'literal',
+                   'options' => [
+                       'route' => '/clientes',
+                       'defaults' => [
+                           'controller' => Controller\ClientesController::class,
+                           'action'=> 'index'
+                       ]
+                   ]
+               ]
+           ]
       ],
 
       'view_manager' => [
