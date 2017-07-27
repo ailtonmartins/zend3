@@ -1,0 +1,53 @@
+<h1>Editar Cliente</h1>
+
+<?php
+
+$nome = $form->get('nome');
+$nome->setAttribute('class','form-control');
+
+$email = $form->get('email');
+$email->setAttribute('class','form-control');
+
+$telefone = $form->get('telefone');
+$telefone->setAttribute('class','form-control');
+
+$foto = $form->get('foto');
+$foto->setAttribute('class','form-control');
+
+
+$submit = $form->get('submit');
+$submit->setAttribute('class','btn btn-primary');
+
+$form->setAttribute('action', $this->url('clientes', ['action'=>'edit','idclientes' => $idclientes]));
+
+$form->prepare();
+echo $this->form()->openTag($form);
+?>
+
+<div class="form-group">
+    <?=$this->formLabel($nome);?>
+    <?=$this->formElement($nome);?>
+</div>
+
+
+<div class="form-group">
+    <?=$this->formLabel($email);?>
+    <?=$this->formElement($email);?>
+</div>
+
+<div class="form-group">
+    <?=$this->formLabel($telefone);?>
+    <?=$this->formElement($telefone);?>
+</div>
+
+<div class="form-group">
+    <?=$this->formLabel($foto);?>
+    <?=$this->formElement($foto);?>
+</div>
+
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('idclientes'));
+echo $this->form()->closeTag();
+?>

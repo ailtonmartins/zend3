@@ -1,7 +1,9 @@
 <h1>
     Cadastro de Cliente
 </h1>
-
+<a href="<?=$this->url('clientes', ['action'=>'add'] );?>">
+    Novo Cliente
+</a>
 
 <table class="table">
     <thead>
@@ -16,11 +18,18 @@
     <tbody>
     <?php foreach($clientes as $cliente) : ?>
     <tr>
-        <td><?= $this->escapeHtml($cliente->foto) ?></td>
+        <td><img width="100" src="/img/cliente/<?= $this->escapeHtml($cliente->foto) ?>"/></td>
         <td><?= $this->escapeHtml($cliente->nome) ?></td>
         <td><?= $this->escapeHtml($cliente->email) ?></td>
         <td><?= $this->escapeHtml($cliente->telefone) ?></td>
-        <td>Editar / Excluir</td>
+        <td>
+            <a href="<?=$this->url('clientes', ['action'=>'edit', 'idclientes'=>$cliente->idclientes] );?>">
+                Editar
+            </a>
+            <a href="<?=$this->url('clientes', ['action'=>'delete', 'idclientes'=>$cliente->idclientes] );?>">
+                Excluir
+            </a>
+        </td>
     </tr>
     <?php endforeach; ?>
     </tbody>

@@ -11,18 +11,22 @@
       ],
 
       'router' => [
-           'routes'=> [
-               'clientes' => [
-                   'type' => 'literal',
-                   'options' => [
-                       'route' => '/clientes',
-                       'defaults' => [
-                           'controller' => Controller\ClientesController::class,
-                           'action'=> 'index'
-                       ]
-                   ]
-               ]
-           ]
+          'routes' => [
+              'clientes' => [
+                  'type' => 'segment',
+                  'options' => [
+                      'route' => '/clientes[/:action[/:idclientes]]',
+                      'constraints' => [
+                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                          'id' => '[0-9]+',
+                      ],
+                      'defaults' => [
+                          'controller' => Controller\ClientesController::class,
+                          'action' => 'index'
+                      ]
+                  ]
+              ],
+          ]
       ],
 
       'view_manager' => [

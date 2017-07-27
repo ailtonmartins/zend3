@@ -14,14 +14,16 @@ class ClientesTable
     public function fetchAll(){
         return $this->tableGateway->select();
     }
-    /*
-  public function save(Post $post)
-  {
+
+    public function save(Clientes $post , $foto = "")
+    {
       $data = [
-          'title' => $post->title,
-          'content' => $post->content
+          'nome' => $post->nome,
+          'email' => $post->email,
+          'foto' => $foto,
+          'telefone' => $post->telefone
       ];
-      $id = (int)$post->id;
+      $id = (int)$post->idclientes;
       if ($id === 0) {
           $this->tableGateway->insert($data);
           return;
@@ -31,12 +33,12 @@ class ClientesTable
               'Could not retrieve the row %d', $id
           ));
       }
-      $this->tableGateway->update($data, ['id' => $id]);
-  }
-  public function find($id)
-  {
+      $this->tableGateway->update($data, ['idclientes' => $id]);
+    }
+    public function find($id)
+    {
       $id = (int)$id;
-      $rowset = $this->tableGateway->select(['id' => $id]);
+      $rowset = $this->tableGateway->select(['idclientes' => $id]);
       $row = $rowset->current();
       if (!$row) {
           throw new RuntimeException(sprintf(
@@ -44,10 +46,10 @@ class ClientesTable
           ));
       }
       return $row;
-  }
-  public function delete($id)
-  {
-      $this->tableGateway->delete(['id' => (int)$id]);
-  }
-  */
+    }
+    public function delete($id)
+    {
+      $this->tableGateway->delete(['idclientes' => (int)$id]);
+    }
+
 }

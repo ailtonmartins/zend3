@@ -12,7 +12,7 @@ class Clientes{
 
     public function exchangeArray(array $data)
     {
-        $this->idclientes = (!empty($data['id'])) ? $data['id'] : null;
+        $this->idclientes = (!empty($data['idclientes'])) ? $data['idclientes'] : null;
         $this->nome = (!empty($data['nome'])) ? $data['nome'] : null;
         $this->telefone = (!empty($data['telefone'])) ? $data['telefone'] : null;
         $this->email = (!empty($data['email'])) ? $data['email'] : null;
